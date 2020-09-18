@@ -83,6 +83,8 @@ button:active {
 .previousMeme,
 .nextMeme {
   background: #fff2;
+  border: 1px dashed #222;
+  text-shadow: 1px 1px #000;
   color: #fffa;
   backdrop-filter: blur(20px) saturate(180%);
   transition: padding 200ms ease;
@@ -97,7 +99,7 @@ button:active {
 }
 .previousMeme:hover,
 .nextMeme:hover {
-  color: #ffff;
+  color: #fff;
 }
 .previousMeme:hover {
   padding-right: 15px;
