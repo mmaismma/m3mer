@@ -1,0 +1,220 @@
+body {
+  font-family: "Segoe UI", helvetica, arial, sans-serif;
+}
+* {
+  scroll-behavior: smooth;
+}
+*:focus {
+  outline: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+p {
+  margin: 0;
+}
+button {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 0;
+  font-family: "Segoe UI";
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 200ms, opacity 300ms, transform 100ms;
+  color: #000;
+  background: #eee;
+}
+button:active {
+  transform: scale(0.95);
+}
+.loader:first-child {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999999;
+}
+.loader {
+  background: #000a;
+  position: fixed;
+  backdrop-filter: blur(20px);
+  display: grid;
+  place-content: center;
+  place-items: center;
+  text-align: center;
+  transition: opacity 200ms ease-in;
+  z-index: 1000;
+}
+.loadIcon {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #1877F2;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%, 0% 0%);
+  border-radius: 50%;
+}
+.loadIcon.move {
+  animation: load-rotate1 1s infinite ease, load-expand 1s infinite ease-out;
+}
+
+@keyframes load-rotate1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes load-expand {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%, 0% 0%);
+  }
+  25% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%, 0% 0%);
+  }
+  50% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%, 0% 0%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%, 0% 0%);
+  }
+}
+.previousMeme,
+.nextMeme {
+  background: #fff2;
+  color: #fffa;
+  backdrop-filter: blur(20px) saturate(180%);
+  transition: padding 200ms ease;
+  margin: auto 0;
+  justify-self: start;
+  height: 50%;
+  border-radius: 0 5px 5px 0;
+}
+.nextMeme {
+  justify-self: end;
+  border-radius: 5px 0 0 5px;
+}
+.previousMeme:hover,
+.nextMeme:hover {
+  color: #ffff;
+}
+.previousMeme:hover {
+  padding-right: 15px;
+}
+.nextMeme:hover {
+  padding-left: 15px;
+}
+.postMeme {
+  background-color: #1877F2;
+  color: #fff;
+  width: 90%;
+  justify-self: end;
+  margin-right: 5px;
+}
+.postMeme:hover {
+  background: #2d88ff;
+}
+.gotoMemeBox {
+  border: 0;
+  border-radius: 0;
+  font-weight: 700;
+  grid-area: num;
+}
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0 10px;
+  border: 0;
+  grid-area: title;
+  border-radius: 5px;
+  height: 60%;
+  width: 90%;
+}
+.title:hover {
+  background: #eee;
+}
+.author {
+  padding: 0 10px;
+  grid-area: author;
+  font-size: 12px;
+}
+.image {
+  height: 90%;
+  width: auto;
+  margin: auto;
+  border-radius: 5px;
+}
+.imageBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 63px;
+  right: 0;
+  background: black;
+  display: grid;
+}
+.navigatorBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2222;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -25px;
+  right: 0;
+  z-index: 9999;
+  display: grid;
+  align-content: end;
+  pointer-events: none;
+}
+.initStuff {
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  height: 100%;
+  background: #fff;
+}
+.vis {
+  display: grid;
+  grid-template-areas:
+    "title title post"
+    "author num initialise"
+    ". . .";
+  grid-template-columns: 80% 5% 15%;
+  grid-template-rows: 60% 30% 10%;
+  background: #fff;
+  height: 80px;
+  align-items: center;
+  pointer-events: auto;
+  padding-left: 5px;
+}
+.initiator {
+  pointer-events: auto;
+  width: 90%;
+  justify-self: end;
+  margin-right: 5px;
+}
+.initiator:hover {
+  background: #ddd;
+}
+.clientSecretGetter {
+  background: #eee;
+  border: 0;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px 0;
+  width: 98%;
+  height: 90%;
+  padding: 0 10px;
+}
+.clientSecretGetter:hover {
+  background: #ddd;
+}
