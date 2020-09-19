@@ -39,6 +39,8 @@ button:active {
   z-index: 9999999;
 }
 .loader {
+  color: #fff;
+  text-shadow: 0px 0px 10px #fff;
   background: #000a;
   position: fixed;
   backdrop-filter: blur(20px);
