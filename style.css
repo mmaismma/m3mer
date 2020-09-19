@@ -15,6 +15,8 @@ p {
 }
 button {
   padding: 5px;
+  width: 100px;
+  height: 30px;
   border-radius: 5px;
   font-size: 15px;
   border: 0;
@@ -80,6 +82,14 @@ button:active {
     clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%, 0% 0%);
   }
 }
+@keyframes moving {
+      0% {
+        background-position: 0px 0px;
+      }
+      100% {
+        background-position: 100px 0px;
+      }
+}
 .previousMeme,
 .nextMeme {
   background: #fff2;
@@ -92,6 +102,7 @@ button:active {
   justify-self: start;
   height: 50%;
   border-radius: 0 5px 5px 0;
+  width: auto;
 }
 .nextMeme {
   justify-self: end;
@@ -110,7 +121,6 @@ button:active {
 .postMeme {
   background-color: #1877F2;
   color: #fff;
-  width: 90%;
   justify-self: end;
   margin-right: 5px;
 }
@@ -200,7 +210,6 @@ button:active {
 }
 .initiator {
   pointer-events: auto;
-  width: 90%;
   justify-self: end;
   margin-right: 5px;
 }
@@ -219,4 +228,8 @@ button:active {
 }
 .clientSecretGetter:hover {
   background: #ddd;
+}
+.postMeme.waiting {
+  animation: moving 3s linear infinite;
+  background-image: repeating-linear-gradient(-60deg, #fffa, #fffa 15px, #0000 15px, #0000 29px);
 }
