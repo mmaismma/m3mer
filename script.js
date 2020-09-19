@@ -131,6 +131,7 @@ function nextMeme(k=-2) {
   k >= 0 ? (i = k) : (null)
   imgLoader.classList.contains('move') ? null : imgLoader.classList.toggle('move')
   imgLoader.parentElement.style.display = 'grid';
+  imgLoader.parentElement.style.opacity = 1
   
   gotoMemeBox.value = i;
   let meme = json["data"]["children"][i]["data"];
@@ -147,7 +148,9 @@ function setLoader() {
   imgLoader.parentElement.style.top = image.offsetTop;
   imgLoader.parentElement.style.left = image.offsetLeft;
   imgLoader.classList.toggle('move')
-  imgLoader.parentElement.style.display = 'none';
+  imgLoader.parentElement.style.opacity = 0, 200
+  setTimeout(imgLoader.parentElement.style.display = 'none', 200)
+  
 }
 
 // Post meme
