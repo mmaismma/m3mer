@@ -23,18 +23,20 @@
           class="gotoMemeBox"
           onchange="nextMeme(this.value*1)"
           type="number"
+          min="0"
           placeholder="#"
         >
-        <button class="postMeme" onclick="postMeme()">
+        <button class="postMeme" onclick="postMeme(event)">
           Post Meme
         </button>
         <input class="title">
         <p class="author"></p>
-        <button class="initiator" onclick="submit()">Initialise</button>
+        <a class="downloader" onclick="this.download= title.value; this.href = image.src.replace('image', 'meme');" href="#" download="meme.png">Download</a>
       </div>
 
       <div id="initStuff" class="initStuff">
         <input class="clientSecretGetter" placeholder="Enter client secret here and click 'Initialise'">
+        <button class="initiator" onclick="submit(event)">Initialise</button>
       </div>
     </div>
 
