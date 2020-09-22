@@ -64,8 +64,8 @@ function setLoader() {
   imgLoader.parentElement.style.width = image.offsetWidth;
   imgLoader.parentElement.style.top = image.offsetTop;
   imgLoader.parentElement.style.left = image.offsetLeft;
-  imgLoader.classList.toggle("move");
   imgLoader.parentElement.style.opacity = 0;
+  imgLoader.classList.toggle("move");
   setTimeout(() => {
     imgLoader.parentElement.style.display = "none";
   }, 200);
@@ -175,8 +175,8 @@ window.onload = () => {
   Http.send();
   Http.onreadystatechange = async e => {
     json = await JSON.parse(Http.responseText);
-    loader.classList.toggle("move");
     loader.parentElement.style.opacity = 0;
+    loader.classList.toggle("move");
     loader.parentElement.style.pointerEvents = "none";
     setTimeout(() => {
       loader.parentElement.style.display = "none";
