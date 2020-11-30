@@ -68,6 +68,7 @@ a {
   height: 50%;
   border-radius: 0 5px 5px 0;
   width: auto;
+  pointer-events: all;
 }
 .nextMeme {
   justify-self: end;
@@ -125,6 +126,7 @@ a {
   z-index: 2222;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  pointer-events: none;
 }
 .bar {
   position: absolute;
