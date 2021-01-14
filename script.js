@@ -171,7 +171,7 @@ function postMeme(e) {
 // Send an HTTP request to our source and retrieve 100 memes
 const Http = new XMLHttpRequest();
 window.onload = () => {
-  Http.open("GET", "https://www.reddit.com/r/wholesomememes/hot.json?limit=100");
+  Http.open("GET", "https://www.reddit.com/r/memes/hot.json?limit=100");
   Http.send();
   Http.onreadystatechange = async e => {
     json = await JSON.parse(Http.responseText);
