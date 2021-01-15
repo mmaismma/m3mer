@@ -132,7 +132,7 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 })(document, "script", "facebook-jssdk");
 
-function getPageAccessToken() {
+function getPageAccessToken(e) {
     console.log("mma");
     FB.api(
         "/" + pageId,
@@ -142,7 +142,15 @@ function getPageAccessToken() {
         },
         function (response) {
             console.log(response);
-            pageAccessToken = response.access_token;
+            if (!response.error) {
+                pageAccessToken = response.access_token;
+            } else {
+                e.target.style.background = "#db0f27";
+                setTimeout(() => {
+                    e.target.style.background = "";
+                    e.target.disabled = false;
+                }, 1000);
+            }
         }
     );
 }
@@ -154,21 +162,17 @@ function login(e) {
             if (response.status === "connected") {
                 console.log(response);
                 userAccessToken = response.authResponse.accessToken;
-                e.target.style.background = "#3fd100";
-                e.target.style.transform = "scale(1.05)";
+                e.target.style.background = "#1a9e09";
                 setTimeout(() => {
                     e.target.style.background = "";
-                    e.target.style.transform = "";
                     e.target.disabled = false;
                 }, 1000);
-                getPageAccessToken();
+                getPageAccessToken(e);
             } else {
                 console.log(response);
                 e.target.style.background = "#db0f27";
-                e.target.style.transform = "scale(0.95)";
                 setTimeout(() => {
                     e.target.style.background = "";
-                    e.target.style.transform = "";
                     e.target.disabled = false;
                 }, 1000);
             }
@@ -204,15 +208,12 @@ function postMeme(e) {
             e.target.classList.toggle("waiting");
             if (response.error || !pic.src) {
                 e.target.style.background = "#db0f27";
-                e.target.style.transform = "scale(0.95)";
                 setTimeout(() => {
                     e.target.style.background = "";
-                    e.target.style.transform = "";
                     e.target.disabled = false;
                 }, 1000);
             } else {
-                e.target.style.background = "#3fd100";
-                e.target.style.transform = "scale(1.05)";
+                e.target.style.background = "#1a9e09";
                 setTimeout(() => {
                     e.target.style.background = "";
                     e.target.style.transform = "";
@@ -229,14 +230,8 @@ httpRequest.onreadystatechange = () => {
             let tempArray = JSON.parse(httpRequest.responseText).data.children;
             picData = [];
             tempArray.forEach(post => {
-                if (!post.data.stickied) {
-                    if (!post.data.is_video) {
-                        if (!post.data.over_18) {
-                            if (!post.data.gallery_data) {
-                                picData.push(post)
-                            }
-                        }
-                    }
+                if (!(post.data.stickied || post.data.is_video || post.data.over_18 || post.data.gallery_data)) {
+                    picData.push(post)
                 }
             });
 
