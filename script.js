@@ -195,14 +195,14 @@ function postMeme(e) {
     FB.api(
         "/" + pageId + "/photos",
         "POST", {
-            url: meme["url"],
+            url: pic.src,
             access_token: pageAccessToken,
-            message: title.value
+            message: picTitle.textContent
         },
         function (response) {
             console.log(response);
             e.target.classList.toggle("waiting");
-            if (response.error || !meme["url"]) {
+            if (response.error || !pic.src) {
                 e.target.style.background = "#db0f27";
                 e.target.style.transform = "scale(0.95)";
                 setTimeout(() => {

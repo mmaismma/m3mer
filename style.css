@@ -192,3 +192,7 @@ button:disabled:hover {
     border-radius: 0;
     border: 1px solid #555;
 }
+
+.waiting {
+    animation: moving 3s linear infinite;
+}
