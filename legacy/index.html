@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="loader">
+          <div class="loadIcon move"></div>
+          <br>
+          Wait a moment,<br>squeezing fresh memes just for you :D&mldr;
+    </div>
+    <div class="loader">
+        <div class="loadIcon"></div>
+    </div>
+    <div class="navigatorBox">
+      <button class="previousMeme" onclick="nextMeme(-1)">&#10094;</button>
+      <button class="nextMeme" onclick="nextMeme()">&#10095;</button>
+    </div>
+    <div class="imageBox"><img class="image" onload="setLoader()"></div>
+
+    <div class="bar">
+      <div class="vis">
+        <input
+          class="gotoMemeBox"
+          onchange="nextMeme(this.value*1)"
+          type="number"
+          min="0"
+          placeholder="#"
+        >
+        <button class="postMeme" onclick="postMeme(event)">
+          Post Meme
+        </button>
+        <input class="title">
+        <p class="author"></p>
+        <a class="downloader" onclick="this.download= title.value; this.href = image.src.replace('image', 'meme');" href="#" download="meme.png">Download</a>
+      </div>
+
+      <div id="initStuff" class="initStuff">
+        <input class="clientSecretGetter" placeholder="Enter client secret here and click 'Initialise'">
+        <button class="initiator" onclick="submit(event)">Initialise</button>
+      </div>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>

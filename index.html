@@ -1,45 +1,53 @@
+<!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <title>Cottontail</title>
+    <meta name="color-scheme" content="dark light">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet preload prefetch" href="https://fonts.googleapis.com/css2?family=Lato &display=swap" as="style">
+
     <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <div class="loader">
-          <div class="loadIcon move"></div>
-          <br>
-          Wait a moment,<br>squeezing fresh memes just for you :D&mldr;
-    </div>
-    <div class="loader">
-        <div class="loadIcon"></div>
-    </div>
-    <div class="navigatorBox">
-      <button class="previousMeme" onclick="nextMeme(-1)">&#10094;</button>
-      <button class="nextMeme" onclick="nextMeme()">&#10095;</button>
-    </div>
-    <div class="imageBox"><img class="image" onload="setLoader()"></div>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+</head>
 
-    <div class="bar">
-      <div class="vis">
-        <input
-          class="gotoMemeBox"
-          onchange="nextMeme(this.value*1)"
-          type="number"
-          min="0"
-          placeholder="#"
-        >
-        <button class="postMeme" onclick="postMeme(event)">
-          Post Meme
-        </button>
-        <input class="title">
-        <p class="author"></p>
-        <a class="downloader" onclick="this.download= title.value; this.href = image.src.replace('image', 'meme');" href="#" download="meme.png">Download</a>
-      </div>
+<body class="a11y">
+    <img id="pic" onload="pic.style.animation = 'none'; pic.style['-webkit-mask'] = 'none'; pic.style['mask'] = 'none'">
 
-      <div id="initStuff" class="initStuff">
-        <input class="clientSecretGetter" placeholder="Enter client secret here and click 'Initialise'">
-        <button class="initiator" onclick="submit(event)">Initialise</button>
-      </div>
+    <p id="pic-title">Could not load title</p>
+
+    <nav id="controls">
+        <button id="prev-pic">Previous Picture</button>
+        <button id="post-meme">Post Meme</button>
+        <button id="next-pic">Next Picture</button>
+        <button id="settings-toggler">Open/Close Settings</button>
+    </nav>
+
+    <div id="settings">
+        <h1 id="screen-title">Settings</h1>
+
+        <label for="mode-selector">Scout for</label>
+        <select id="mode-selector" onchange="scoutMode = this.value; localStorage.setItem('m3-scoutMode', this.value); sendHttpRequest()">
+            <option value="memes">memes</option>
+            <option value="dankmemes">dankmemes</option>
+            <option value="wholesomememes">wholesomememes</option>
+            <option value="funny">funny</option>
+        </select><br><br>
+
+        <input type="text" id="client-secret-getter" placeholder="Enter client secret here">
+        <button onclick="submit(event)">Initialise</button><br><br>
+
+        <button onclick="toggleSettings()">Close Settings</button>
+
+        <footer>
+            <p>Made by <a href="github.com/mmaismma">MMA</a></p>
+            <p>Contribute on <a href="github.com/mmaismma/cottontail">GitHub</p>
+        </footer>
     </div>
 
-    <script src="./script.js" defer></script>
-  </body>
+    <script src="./script.js"></script>
+</body>
+
 </html>
