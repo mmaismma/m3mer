@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Cottontail</title>
+    <title>m3mer</title>
     <meta name="color-scheme" content="dark light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet preload prefetch" href="https://fonts.googleapis.com/css2?family=Lato &display=swap" as="style">
@@ -11,18 +11,19 @@
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="shortcut icon" href="./favicon.ico">
     <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body class="a11y">
+<body>
     <img id="pic" onload="pic.style.animation = 'none'; pic.style['-webkit-mask'] = 'none'; pic.style['mask'] = 'none'">
 
     <p id="pic-title">Could not load title</p>
 
     <nav id="controls">
-        <button id="prev-pic">Previous Picture</button>
-        <button id="post-meme">Post Meme</button>
-        <button id="next-pic">Next Picture</button>
-        <button id="settings-toggler">Open/Close Settings</button>
+        <button id="prev-pic" data-icon="arrow_back"></button>
+        <button id="post-meme" data-icon="done"></button>
+        <button id="next-pic" data-icon="arrow_forward"></button>
+        <button id="settings-toggler" data-icon="settings"></button>
     </nav>
 
     <div id="settings">
@@ -43,7 +44,7 @@
 
         <footer>
             <p>Made by <a href="github.com/mmaismma">MMA</a></p>
-            <p>Contribute on <a href="github.com/mmaismma/cottontail">GitHub</p>
+            <p>Contribute on <a href="github.com/mmaismma/m3mer">GitHub</p>
         </footer>
     </div>
 

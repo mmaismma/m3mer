@@ -15,7 +15,6 @@ body {
     pointer-events: none;
     position: relative;
     user-select: none;
-    height: calc(100% - 50px);
 }
 
 * {
@@ -41,10 +40,6 @@ button {
     cursor: pointer;
 }
 
-button.invisible {
-    cursor: auto;
-}
-
 button:hover {
     background: #555;
 }
@@ -58,12 +53,9 @@ footer {
     bottom: 30px;
 }
 
-body button:focus {
+button:focus {
     box-shadow: 0 0 0 2px inset #4c9aff;
     outline: none;
-}
-
-button:focus {
     border-color: white;
 }
 
@@ -112,7 +104,7 @@ button:disabled:hover {
     color: white;
     position: absolute;
     left: 0;
-    bottom: 0;
+    top: 0;
     width: 100%;
     margin: 0;
     padding: 2vh 2vw;
@@ -180,17 +172,37 @@ button:disabled:hover {
 
 #controls {
     position: absolute;
-    bottom: -50px;
+    bottom: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 50px;
+    height: 75px;
     width: 100%;
     display: grid;
 }
 
 #controls button {
     border: none;
-    border-radius: 0;
-    border: 1px solid #555;
+    border-radius: 1000px;
+    height: 50px;
+    width: 50px;
+    justify-self: center;
+    align-self: baseline;
+    background-color: #000a;
+    font-size: 12px;
+}
+
+#post-meme {
+    background-color: #4c9aff !important;
+    height: 75px !important;
+    width: 75px !important;
+    font-size: 24px !important;
+}
+
+#next-pic {
+    background-color: #fff !important;
+    color: #000;
+    height: 75px !important;
+    width: 75px !important;
+    font-size: 24px !important;
 }
 
 .waiting {
@@ -205,4 +217,24 @@ button:disabled:hover {
     100% {
         background-position: 1000px 0px;
     }
+}
+
+[data-icon]::before {
+    content: attr(data-icon);
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
