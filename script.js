@@ -1,8 +1,8 @@
-let userAccessToken;
-let pageAccessToken;
+let userAccessToken = localStorage.getItem('m3-userAccess') === null ? "" : localStorage.getItem('m3-userAccess');
+let pageAccessToken = localStorage.getItem('m3-pageAccess') === null ? "" : localStorage.getItem('m3-pageAccess');
 const appId = 521539908714490;
 const pageId = "m3mers";
-let clientSecret;
+let clientSecret = localStorage.getItem('m3-clientSecret') === null ? "" : localStorage.getItem('m3-clientSecret');
 const clientSecretGetter = document.getElementById('client-secret-getter')
 
 const elId = function (el) {
@@ -144,11 +144,13 @@ function getPageAccessToken(e) {
             console.log(response);
             if (!response.error) {
                 pageAccessToken = response.access_token;
+                localStorage.setItem('m3-clientSecret', clientSecret)
+                localStorage.setItem('m3-pageAccess', pageAccessToken)
+                localStorage.setItem('m3-userAccess', userAccessToken)
             } else {
                 e.target.style.background = "#db0f27";
                 setTimeout(() => {
                     e.target.style.background = "";
-                    e.target.disabled = false;
                 }, 1000);
             }
         }
@@ -239,7 +241,6 @@ httpRequest.onreadystatechange = () => {
             picNum = -1;
             nextPic.click();
             picTitle.style.display = 'block';
-            controls.style.visibility = '';
             return
         }
         pic.classList.add('error');
