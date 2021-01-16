@@ -202,7 +202,7 @@ function postMeme(e) {
         "/" + pageId + "/photos",
         "POST", {
             url: pic.src,
-            access_token: pageAccessToken,
+            access_token: appId+'|'+clientSecret,
             message: picTitle.textContent
         },
         function (response) {
