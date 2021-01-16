@@ -209,16 +209,15 @@ function postMeme(e) {
             console.log(response);
             e.target.classList.toggle("waiting");
             if (response.error || !pic.src) {
-                e.target.style.background = "#db0f27";
+                e.target.style.boxShadow = "0 0 0 1px #db0f27";
                 setTimeout(() => {
-                    e.target.style.background = "";
+                    e.target.style.boxShadow = "";
                     e.target.disabled = false;
                 }, 1000);
             } else {
-                e.target.style.background = "#1a9e09";
+                e.target.style.boxShadow = "0 0 0 1px #1a9e09";
                 setTimeout(() => {
-                    e.target.style.background = "";
-                    e.target.style.transform = "";
+                    e.target.style.boxShadow = "";
                     e.target.disabled = false;
                 }, 1000);
             }
