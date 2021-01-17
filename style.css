@@ -177,6 +177,7 @@ button:disabled:hover {
     height: 75px;
     width: 100%;
     display: grid;
+    transition: opacity 100ms linear;
 }
 
 #controls button {
