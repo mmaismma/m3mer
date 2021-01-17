@@ -91,6 +91,11 @@ nextPic.onclick = () => {
     changePic(1);
 }
 memePoster.onclick = postMeme;
+memePoster.addEventListener('click', () => {
+    [...controls.childNodes].forEach(elm => {
+        elm.disabled = true;
+    })
+})
 
 setter.onclick = (e) => {
     toggleSettings(e);
@@ -214,14 +219,20 @@ function postMeme(e) {
                     e.target.style.boxShadow = "";
                     e.target.style.background = "";
                     e.target.disabled = false;
-                }, 1000);
+                }, 2000);
+                [...controls.childNodes].forEach(elm => {
+                    elm.disabled = false;
+                })
             } else {
                 e.target.style.boxShadow = "0 0 0 2px #1a9e09";
                 setTimeout(() => {
                     e.target.style.boxShadow = "";
                     e.target.style.background = "";
                     e.target.disabled = false;
-                }, 1000);
+                }, 2000);
+                [...controls.childNodes].forEach(elm => {
+                    elm.disabled = false;
+                })
             }
         }
     );
