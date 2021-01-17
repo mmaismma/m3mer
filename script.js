@@ -249,3 +249,11 @@ httpRequest.onreadystatechange = () => {
 }
 
 sendHttpRequest();
+
+pic.onclick = () => {
+    if (controls.style.opacity != 1) {
+        controls.style.opacity = 1;
+    } else {
+        controls.style.opacity = 0.1;
+    }
+}
