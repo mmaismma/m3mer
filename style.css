@@ -60,7 +60,7 @@ button:focus {
 }
 
 button:disabled {
-    color: #555;
+    color: #777;
     cursor: auto;
 }
 
@@ -114,7 +114,7 @@ button:disabled:hover {
     display: none;
     text-shadow: 0 0 5px black;
 
-    transition: opacity 200ms linear;
+    transition: opacity 200ms ease-out;
 }
 
 #settings {
