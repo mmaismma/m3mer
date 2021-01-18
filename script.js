@@ -267,4 +267,10 @@ pic.onclick = () => {
     } else {
         controls.style.opacity = 0.1;
     }
+
+    if (picTitle.style.opacity != 1) {
+        picTitle.style.opacity = 1;
+    } else {
+        picTitle.style.opacity = 0.1;
+    }
 }
