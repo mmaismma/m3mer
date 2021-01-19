@@ -39,16 +39,13 @@ function changePic(diff) {
     } else {
         nextPic.disabled = false;
     }
-
-    setTimeout(() => {
-        pic.style.animation = '';
-        pic.style.mask = '';
-        pic.style["-webkit-mask"] = '';
-        pic.style["-moz-mask"] = '';
-        pic.style["-ms-mask"] = '';
-        pic.src = "";
-        picTitle.textContent = "";
-    }, 0)
+    pic.style.animation = '';
+    pic.style.mask = '';
+    pic.style["-webkit-mask"] = '';
+    pic.style["-moz-mask"] = '';
+    pic.style["-ms-mask"] = '';
+    pic.src = "";
+    picTitle.textContent = "";
 
     let tempImg = new Image();
     tempImg.onload = () => {
