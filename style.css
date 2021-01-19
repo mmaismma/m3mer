@@ -190,6 +190,7 @@ button:disabled:hover {
     background-color: #000a;
     font-size: 12px;
     box-shadow: 2px 2px 5px 1px #000a;
+    overflow: hidden;
 }
 
 #post-meme {
