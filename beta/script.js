@@ -1,5 +1,5 @@
-let userAccessToken = localStorage?.getItem('m3-userAccess') ?? "";
-let pageAccessToken = localStorage?.getItem('m3-pageAccess') ?? "";
+let userAccessToken = localStorage.getItem('m3-userAccess') ?? "";
+let pageAccessToken = localStorage.getItem('m3-pageAccess') ?? "";
 const appId = 521539908714490;
 const pageId = "m3mers";
 let clientSecret = localStorage?.getItem('m3-clientSecret') ?? "";
@@ -202,7 +202,7 @@ function postMeme(e) {
     e.target.classList.toggle("waiting");
 
     fetch(`http://graph.facebook.com/2312749467/media?image_url=${pic.src}&caption=${picTitle.textContent}&access_token=${userAcessToken}`, {
-            method: 'POST';
+            method: 'POST'
         }).then(response => {
             const conatainerId = response.id
             fetch(`http://graph.facebook.com/2312749467/media_publish?creation_id=${containerId}&access_token=${userAcessToken}`, {
