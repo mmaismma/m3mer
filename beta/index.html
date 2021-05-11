@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>m3mer</title>
+    <meta name="color-scheme" content="dark light">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <img id="pic" onload="pic.style.animation = 'none'; pic.style['-webkit-mask'] = 'none'; pic.style['mask'] = 'none'">
+
+    <p id="pic-title">Could not load title</p>
+
+    <nav id="controls">
+        <button id="prev-pic" data-icon="arrow_back"></button>
+        <button id="post-meme" data-icon="done"></button>
+        <button id="next-pic" data-icon="arrow_forward"></button>
+        <button id="settings-toggler" data-icon="settings"></button>
+    </nav>
+
+    <div id="settings">
+        <h1 id="screen-title">Settings</h1>
+
+        <label for="mode-selector">Scout for</label>
+        <select id="mode-selector" onchange="scoutMode = this.value; localStorage.setItem('m3-scoutMode', this.value); sendHttpRequest()">
+            <option value="memes">memes</option>
+            <option value="dankmemes">dankmemes</option>
+            <option value="wholesomememes">wholesomememes</option>
+            <option value="funny">funny</option>
+        </select><br><br>
+
+        <input type="text" id="client-secret-getter" placeholder="Enter client secret here">
+        <button onclick="submit(event)">Initialise</button><br><br>
+
+        <button onclick="toggleSettings()">Close Settings</button>
+
+        <footer>
+            <p>Made by <a href="https://github.com/mmaismma">MMA</a></p>
+            <p>Contribute on <a href="https://github.com/mmaismma/m3mer">GitHub</p>
+        </footer>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
