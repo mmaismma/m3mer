@@ -201,12 +201,12 @@ function postMeme(e) {
         "repeating-linear-gradient(-60deg, #222, #222 15px, #444 15px, #444 29px)";
     e.target.classList.toggle("waiting");
 
-    fetch(`https://graph.facebook.com/2312749467/media?image_url=${pic.src}&caption=${picTitle.textContent}&access_token=${userAccessToken}`, {
+    fetch(`https://graph.facebook.com/47817397406/media?image_url=${pic.src}&caption=${picTitle.textContent}&access_token=${userAccessToken}`, {
             method: 'POST'
         }).then(response => response.json()).then(response => {
             const containerId = response.id
 console.log(response)
-            fetch(`https://graph.facebook.com/2312749467/media_publish?creation_id=${containerId}&access_token=${userAccessToken}`, {
+            fetch(`https://graph.facebook.com/47817397406/media_publish?creation_id=${containerId}&access_token=${userAccessToken}`, {
                 method: 'POST'
             }).then(response => {
 console.log(response)
