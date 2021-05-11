@@ -204,11 +204,12 @@ function postMeme(e) {
     fetch(`http://graph.facebook.com/2312749467/media?image_url=${pic.src}&caption=${picTitle.textContent}&access_token=${userAccessToken}`, {
             method: 'POST'
         }).then(response => {
-            const conatainerId = response.id
+            const containerId = response.id
+console.log('m'+ containerId)
             fetch(`http://graph.facebook.com/2312749467/media_publish?creation_id=${containerId}&access_token=${userAccessToken}`, {
                 method: 'POST'
             }).then(response => {
-
+console.log(response)
             })
         }
     )
