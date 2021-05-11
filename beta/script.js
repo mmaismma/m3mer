@@ -206,7 +206,7 @@ function postMeme(e) {
         }).then(response => {
             const conatainerId = response.id
             fetch(`http://graph.facebook.com/2312749467/media_publish?creation_id=${containerId}&access_token=${userAcessToken}`, {
-                method: 'POST';
+                method: 'POST'
             }).then(response => {
 
             })
