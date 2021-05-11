@@ -1,3 +1,5 @@
+(function () { var script = document.createElement('script'); script.src="//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () { eruda.init() } })();
+
 let userAccessToken = localStorage?.getItem('m3-userAccess') ?? "";
 let pageAccessToken = localStorage?.getItem('m3-pageAccess') ?? "";
 const appId = 521539908714490;
